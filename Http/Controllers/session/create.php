@@ -1,9 +1,7 @@
 <?php
 
-$errors = [];
+use Core\Session;
 
 view('session/create', [
-    'email' => '',
-    'password' => '',
-    'errors' => $errors
+    'errors' => Session::get('errors', [])
 ]);

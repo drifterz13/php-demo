@@ -1,5 +1,7 @@
 <?php
 
+use Core\Session;
+
 $BASE_PATH = __DIR__ . '/../';
 
 session_start();
@@ -24,3 +26,5 @@ $path = parse_url($_SERVER['REQUEST_URI'])['path'];
 $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
 $router->route($path, $method);
+
+Session::unflash();

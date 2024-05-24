@@ -4,6 +4,7 @@ use Core\App;
 use Core\Authenticator;
 use Core\Database;
 use Core\Router;
+use Core\Session;
 use Http\Forms\LoginForm;
 
 $email = $_POST['email'];
@@ -21,8 +22,6 @@ if ($form->validate($email, $password)) {
     $form->error('message', 'Invalid email or password');
 }
 
-return view('session/create', [
-    'errors' => $form->errors(),
-    'email' => $email,
-    'password' => $password
-]);
+Session::flash('errors', $form->errors());
+
+return Router::redirect('/login');

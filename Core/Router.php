@@ -64,6 +64,7 @@ class Router
     public static function redirect($path)
     {
         header("Location: $path");
+        exit();
     }
 
     public function route(String $uri, String $method)
