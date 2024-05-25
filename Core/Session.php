@@ -32,7 +32,7 @@ class Session
 
     public static function flush()
     {
-        $_SESSION = [];
+        unset($_SESSION);
     }
 
     public static function destroy()

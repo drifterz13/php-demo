@@ -67,6 +67,11 @@ class Router
         exit();
     }
 
+    public function prevUrl()
+    {
+        return $_SERVER['HTTP_REFERER'];
+    }
+
     public function route(String $uri, String $method)
     {
         foreach ($this->routes as $route) {

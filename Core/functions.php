@@ -1,7 +1,6 @@
 <?php
 
-use Core\Response;
-use Core\Router;
+use Core\Session;
 
 function dd($val)
 {
@@ -32,4 +31,9 @@ function partial($path, $attrs = [])
 {
     extract($attrs);
     require base_path('views/partials/' . $path . '.view.php');
+}
+
+function old(String $key, $default = '')
+{
+    return Session::get('old')[$key] ?? $default;
 }
